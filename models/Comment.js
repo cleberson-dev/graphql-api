@@ -1,6 +1,7 @@
 const Sequelize, { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
+const db = require('../db');
 const User = require('./User');
 const Post = require('./Post');
 
@@ -33,4 +34,4 @@ Comment.init({
       max: 240
     }
   }
-});
+}, { db, modelName: 'comment' });

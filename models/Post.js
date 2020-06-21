@@ -1,6 +1,7 @@
 const Sequelize, { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
+const db = require('../db');
 const User = require('./User'); 
 
 class Post extends Model {}
@@ -30,4 +31,4 @@ Post.init({
     key: 'id',
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   }
-});
+}, { db, modelName: 'post' }));

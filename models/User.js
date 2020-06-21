@@ -1,6 +1,8 @@
 const Sequelize, { Model } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
+const db = require('../db');
+
 class User extends Model {}
 User.init({
   id: {
@@ -29,4 +31,4 @@ User.init({
     type: Sequelize.STRING,
     allowNull: false
   }
-});
+}, { db, modelName: 'user' });
