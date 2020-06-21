@@ -1,10 +1,10 @@
-const Sequelize, { Model } = require('sequelize');
+const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
 const User = require('./User'); 
 
-class Post extends Model {}
+class Post extends Sequelize.Model {}
 Post.init({
   id: {
     type: Sequelize.STRING,
@@ -31,4 +31,4 @@ Post.init({
     key: 'id',
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   }
-}, { db, modelName: 'post' }));
+}, { sequelize: db, modelName: 'post' });

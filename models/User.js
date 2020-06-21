@@ -1,9 +1,9 @@
-const Sequelize, { Model } = require('sequelize');
+const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
 
-class User extends Model {}
+class User extends Sequelize.Model {}
 User.init({
   id: {
     type: Sequelize.STRING,
@@ -31,4 +31,4 @@ User.init({
     type: Sequelize.STRING,
     allowNull: false
   }
-}, { db, modelName: 'user' });
+}, { sequelize: db, modelName: 'user' });

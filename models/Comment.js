@@ -1,11 +1,11 @@
-const Sequelize, { Model } = require('sequelize');
+const Sequelize = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
 const User = require('./User');
 const Post = require('./Post');
 
-class Comment extends Model {}
+class Comment extends Sequelize.Model {}
 Comment.init({
   id: {
     type: Sequelize.STRING,
@@ -34,4 +34,4 @@ Comment.init({
       max: 240
     }
   }
-}, { db, modelName: 'comment' });
+}, { sequelize: db, modelName: 'comment' });
