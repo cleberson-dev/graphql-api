@@ -1,0 +1,12 @@
+{
+  "name": "graphql-blog",
+  "version": "1.0.0",
+  "description": "API escrita em Javascript expondo uma API em GraphQL",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": ["graphql", "api", "javascript", "nodejs", "apollo"],
+  "author": "Cleberson F R Junior <cleberson.dev@gmail.com> (http://clebersondev.netlify.app)",
+  "license": "MIT"
+}
