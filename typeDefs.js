@@ -23,4 +23,12 @@ module.exports = gql`
     content: String!
     commentedAt: String!
   }
+
+
+
+  type Query {
+    user(usernameOrEmail: String): User
+    posts: [Post]
+    comments(postId: Int): [PostComment]
+  }
 `;
