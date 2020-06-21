@@ -6,7 +6,17 @@
   "scripts": {
     "start": "node ."
   },
-  "keywords": ["graphql", "api", "javascript", "nodejs", "apollo"],
+  "keywords": [
+    "graphql",
+    "api",
+    "javascript",
+    "nodejs",
+    "apollo"
+  ],
   "author": "Cleberson F R Junior <cleberson.dev@gmail.com> (http://clebersondev.netlify.app)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.15.0",
+    "graphql": "^15.1.0"
+  }
 }
