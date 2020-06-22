@@ -1,15 +1,14 @@
 const Sequelize = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
-const User = require('./User'); 
+const User = require('./User');
 
-class Post extends Sequelize.Model {}
-Post.init({
+const Post = db.define('post', {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
     primaryKey: true,
-    defaultValue: uuidv4
+    allowNull: false,
+    defaultValue: Sequelize.DataTypes.UUIDV4
   },
   title: {
     type: Sequelize.STRING,
@@ -26,9 +25,13 @@ Post.init({
     }
   },
   userId: {
-    type: Sequelize.STRING,
-    references: User,
-    key: 'id',
+    type: Sequelize.UUID,
+    references: {
+      model: User,
+      key: 'id'
+    }, 
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   }
-}, { sequelize: db, modelName: 'post' });
+});
+
+module.exports = Post;

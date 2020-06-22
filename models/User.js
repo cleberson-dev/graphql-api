@@ -1,14 +1,13 @@
 const Sequelize = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
 
-class User extends Sequelize.Model {}
-User.init({
+const User = db.define('user', {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
     primaryKey: true,
-    defaultValue: uuidv4
+    allowNull: false,
+    defaultValue: Sequelize.DataTypes.UUIDV4
   },
   username: {
     type: Sequelize.STRING,
@@ -31,4 +30,6 @@ User.init({
     type: Sequelize.STRING,
     allowNull: false
   }
-}, { sequelize: db, modelName: 'user' });
+});
+
+module.exports = User;

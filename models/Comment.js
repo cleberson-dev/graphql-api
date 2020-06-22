@@ -1,29 +1,32 @@
 const Sequelize = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 
 const db = require('../db');
 const User = require('./User');
 const Post = require('./Post');
 
-class Comment extends Sequelize.Model {}
-Comment.init({
+const Comment = db.define('post_comment', {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
     primaryKey: true,
-    defaultValue: uuidv4
+    allowNull: false,
+    defaultValue: Sequelize.DataTypes.UUIDV4
   },
   postId: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
     allowNull: false,
-    references: Post,
-    key: 'id',
+    references: {
+      model: Post,
+      key: 'id'
+    },
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   },
   userId: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
     allowNull: false,
-    references: User,
-    key: 'id',
+    references: {
+      model: User,
+      key: 'id'
+    },
     deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
   },
   content: {
@@ -34,4 +37,6 @@ Comment.init({
       max: 240
     }
   }
-}, { sequelize: db, modelName: 'comment' });
+});
+
+module.exports = Comment;
