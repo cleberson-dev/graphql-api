@@ -4,7 +4,8 @@
   "description": "API escrita em Javascript expondo uma API em GraphQL",
   "main": "app.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "start:dev": "nodemon ."
   },
   "keywords": [
     "graphql",
@@ -19,6 +20,7 @@
     "apollo-resolvers": "^1.4.2",
     "apollo-server": "^2.15.0",
     "graphql": "^15.1.0",
+    "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.13",
