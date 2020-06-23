@@ -16,6 +16,7 @@
   "author": "Cleberson F R Junior <cleberson.dev@gmail.com> (http://clebersondev.netlify.app)",
   "license": "MIT",
   "dependencies": {
+    "apollo-resolvers": "^1.4.2",
     "apollo-server": "^2.15.0",
     "graphql": "^15.1.0",
     "pg": "^8.2.1",
