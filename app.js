@@ -10,6 +10,7 @@ db
   .authenticate()
   .then(() => {
     console.log('Banco de dados rodando');
+    // Tabelas serão removidos toda vez que aplicação iniciar
     return db.sync({ force: true });
   })
   .catch(err => {
